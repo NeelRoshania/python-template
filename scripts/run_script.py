@@ -1,6 +1,7 @@
 import argparse
 import logging
 import logging.config
+import configparser
 
 if __name__ == "__main__":
 
@@ -13,6 +14,12 @@ if __name__ == "__main__":
     # setup logging environment
     logging.config.fileConfig('conf/logging.conf', defaults={'fileHandlerLog': 'logs/run_script.log'})
     logger = logging.getLogger('main')
+
+    # boto3 config_parser
+    cparser = configparser.ConfigParser()
+    cparser.read('conf/pipeline_hidden.conf')
+    access_key = cparser.get('aws_boto_credentials', 'access_key')
+    secrey_key = cparser.get('aws_boto_credentials', 'secret_key')
 
     # setup and run wdod
     logger.info(f'--- starting run_script ---')

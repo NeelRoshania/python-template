@@ -133,3 +133,6 @@ data/
 
 # logs
 logs/
+
+# conf
+conf/pipeline_hidden.conf
