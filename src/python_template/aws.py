@@ -7,6 +7,7 @@ logger = logging.getLogger('module')
 
 """
 Notes
+    - aws cli: https://awscli.amazonaws.com/v2/documentation/api/latest/index.html
     - client = boto3.client('s3')
     - s3 = boto3.resource('s3')
 
