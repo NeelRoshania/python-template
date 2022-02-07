@@ -134,5 +134,8 @@ data/
 # logs
 logs/
 
-# conf
+# config files
 conf/pipeline_hidden.conf
+
+# file types
+*.tar.gz
