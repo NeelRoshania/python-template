@@ -15,7 +15,7 @@ if __name__ == "__main__":
     logging.config.fileConfig('conf/logging.conf', defaults={'fileHandlerLog': 'logs/run_script.log'})
     logger = logging.getLogger('main')
 
-    # boto3 config_parser
+    # config_parser
     cparser = configparser.ConfigParser()
     cparser.read('conf/pipeline_hidden.conf')
     access_key = cparser.get('aws_boto_credentials', 'access_key')
