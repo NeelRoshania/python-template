@@ -1,13 +1,19 @@
 #!/bin/bash
 
+# Sources
+#   - tutorial: https://linuxconfig.org/bash-scripting-tutorial-for-beginners
+#   - glossary: https://ss64.com/bash/
+
 #
 # sample execution - create a backup of scripts
 #
 
+# variable assignments
 input=scripts/tools
 output=bash/output
 backup_file=$output/$(date +%Y-%m-%d_%H%M%S)_backup.tar.gz
 
+# functional assignments
 function total_files {
         find $1 -type f | wc -l
 }
@@ -24,7 +30,7 @@ function total_archived_files {
         tar -tzf $1 | grep -v /$ | wc -l
 }
 
-# piping outputs to files
+# creating files
 echo "- Creating output files"
 touch $output/standard_output.txt
 touch $output/error_output.txt
