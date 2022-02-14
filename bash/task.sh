@@ -12,6 +12,7 @@
 input=scripts/tools
 output=bash/output
 backup_file=$output/$(date +%Y-%m-%d_%H%M%S)_backup.tar.gz
+aws_arn="${ENV_VAR:-ENVNOTSET}" # defualt to value if env not found
 
 # functional assignments
 function total_files {
