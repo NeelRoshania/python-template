@@ -2,6 +2,7 @@
 
 # Sources
 #   - tutorial: https://linuxconfig.org/bash-scripting-tutorial-for-beginners
+#   - cron jobs: https://ostechnix.com/a-beginners-guide-to-cron-jobs/
 #   - glossary: https://ss64.com/bash/
 
 #
