@@ -1,0 +1,11 @@
+# output lines that meet this patterns
+/MA/ 
+
+# then apply this logic
+{
+    # print fields
+    print "\t- field_1: " $1;
+    print "\t- field_2: " $2;
+    print "\t- field_3: " $3;
+    
+}
