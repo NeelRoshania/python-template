@@ -12,7 +12,8 @@
 input=scripts/tools
 output=bash/output
 backup_file=$output/$(date +%Y-%m-%d_%H%M%S)_backup.tar.gz
-aws_arn="${ENV_VAR:-ENVNOTSET}" # defualt to value if env not found
+env_var="${env_var:-ENVNOTSET}" # defualt to value if env not found
+in_venv=$(python -c 'import sys; print ("1" if hasattr(sys, "prefix") & (".env" in sys.prefix) else "0")')
 
 # functional assignments
 function total_files {
@@ -64,5 +65,14 @@ if [ $src_files -eq $arch_files ]; then
         echo "  - Backup of $input completed!"
 else
         echo "  - **Backup of $input failed!"
+fi
+
+# check environments before starting pipeline session
+if [ -z $env_var ] || [ $in_venv -eq "0" ] 
+then
+    echo "$date_now:task.sh:WARNING: env_var not set or environment not activated"  
+    exit 1
+else
+    echo "$date_now:task.sh:pipeline execution & parsing"
 fi
 
