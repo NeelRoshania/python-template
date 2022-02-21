@@ -70,7 +70,8 @@ fi
 # check environments before starting pipeline session
 if [ -z $env_var ] || [ $in_venv -eq "0" ] 
 then
-    echo "$date_now:task.sh:WARNING: env_var not set or environment not activated"  
+    echo "$date_now:task.sh:WARNING: env_var not set or environment not activated" 
+    "$date_now:nejm_main.sh:WARNING: specific_env_var not set or environment not activated" 2>> $logs/main_bash.log  
     exit 1
 else
     echo "$date_now:task.sh:pipeline execution & parsing"
