@@ -1,16 +1,21 @@
-# python-template
+# flask-template
 
-- Use this library to start your python projects
+- Template Flask implementation
 
 ### References
 
 ### Installation guide
 
 **Module setup**
-1. `python -m venv .env` and `pip3 install --upgrade pip` 
-2. `cd .env/scripts ` then `activate`
+1. `python -m venv flask/yourapplication/.flask` and `pip3 install --upgrade pip` 
+2. Activate enviroment
 3. Modify `setup.cfg` and `src`
-4. `pip3 install -e .`
+4. Navigage to `\python-template` then `pip3 install -e .`
+
+**Running the app*
+`export FLASK_APP=flaskr`
+`export FLASK_ENV=development`
+`flask run`
 
 **Jupyter kernel setup**
 1. `jupyter kernelspec uninstall .example_env` - remove existing kernels called .example_env

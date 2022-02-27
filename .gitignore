@@ -2,6 +2,7 @@
 __pycache__/
 *.py[cod]
 *$py.class
+*.pyc
 
 # C extensions
 *.so
@@ -109,6 +110,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+.flask
 
 # Spyder project settings
 .spyderproject
@@ -128,8 +130,9 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-# data
+# explicit directories
 data/
+htmlcov/
 
 # logs
 logs/
