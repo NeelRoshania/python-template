@@ -12,7 +12,7 @@
 3. Modify `setup.cfg` and `src`
 4. Navigage to `\python-template` then `pip3 install -e .`
 
-**Running the app*
+**Running the app**
 `export FLASK_ENV=development`
 `python -m app`
 
