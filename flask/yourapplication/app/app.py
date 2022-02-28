@@ -26,7 +26,7 @@ def create_app(**kwargs):
         )
     app.add_api(API_SPEC, resolver=MethodViewResolver(__name__.split(".")[0]))
     
-    # define url rules
+    # define url rules - this shouldn't need to be configured manually
     flasktemplate_view = FlasktemplateView.as_view('flask-template')
     app.add_url_rule(
         '/flask_template/', 
