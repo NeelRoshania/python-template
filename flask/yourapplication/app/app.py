@@ -10,6 +10,7 @@ from . import auth
 """
 Resources
     - Automatic routing with MethodViewResolver: https://connexion.readthedocs.io/en/latest/routing.html#automatic-routing-with-methodviewresolver
+    - OpenAPI specification: https://swagger.io/specification/
 """
 
 API_SPEC = pkg_resources.resource_filename(__name__, "openapi/swagger.yaml")
