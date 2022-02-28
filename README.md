@@ -13,9 +13,8 @@
 4. Navigage to `\python-template` then `pip3 install -e .`
 
 **Running the app*
-`export FLASK_APP=flaskr`
 `export FLASK_ENV=development`
-`flask run`
+`python -m app`
 
 **Jupyter kernel setup**
 1. `jupyter kernelspec uninstall .example_env` - remove existing kernels called .example_env

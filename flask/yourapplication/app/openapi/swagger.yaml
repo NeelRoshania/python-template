@@ -1,0 +1,25 @@
+openapi: 3.0.3
+info:
+  title: Flask API Template
+  version: 0.1.0
+  description: API endpoints for the Flask Template service. More in-depth documentation can be found <a href="https://google.com" target="_blank" rel="noopener noreferrer">here</a>.
+  contact:
+    name: Neel Roshania
+    email: nroshania@gmail.com
+security:
+  - {}
+paths:
+  /flasktemplate:
+    get:
+      description: Testing of OPEN API.
+      responses:
+        '200':
+          description: "good response"
+        '204':
+          description: "empty response"
+        '404':
+          description: "cannot find url"
+components:
+  responses:
+    UnauthorizedError:
+      description: API key is missing or invalid
