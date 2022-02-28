@@ -6,18 +6,19 @@ class FlasktemplateView(MethodView):
     """
     Views for endpoints which return xxxxx
     """
-    
-    def get(self, user_id):
-        return make_response(f'response: url configured correctly', 200)
 
     def post(self):
-        pass
-
-    def delete(self, user_id):
         pass
 
     def put(self, user_id):
         pass
 
+    def delete(self, user_id):
+        pass
+
+    def get(self, user_id):
+        return make_response(f'get: url configured correctly', 200)
+
     def search(self):
+        return make_response(f'search: url configured correctly', 200)
         pass
