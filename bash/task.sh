@@ -4,9 +4,12 @@
 #   - tutorial: https://linuxconfig.org/bash-scripting-tutorial-for-beginners
 #   - glossary: https://ss64.com/bash/
 
-#
-# sample execution - create a backup of scripts
-#
+# Guidance
+#   - Use this bash script to download list id's
+#       - bash bash/task.sh [ input_file ]
+
+# arguments
+arg1=$1
 
 # variable assignments
 input=scripts/tools

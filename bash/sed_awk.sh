@@ -15,7 +15,7 @@
 
 # Using scripts
 echo ""
-echo "- piping (|) sed into awk (no need to specify file in awk"
+echo "- piping (|) sed into awk (no need to specify file in awk)"
 sed -f scripts/sedscr data/list | awk -F, -f scripts/awkscr_printfields
 
 echo ""

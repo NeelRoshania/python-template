@@ -16,6 +16,9 @@
 1. `jupyter kernelspec uninstall .example_env` - remove existing kernels called .example_env
 2. `python -m ipykernel install --user --name=.example_env`- install new kernel
 
+**Testing**
+1. `pytest -v`
+
 ### Usage
 
 1. Script implementations here

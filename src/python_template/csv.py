@@ -26,6 +26,7 @@ def write_text(file_loc: str, data: str, encoding:str = None) -> None:
     
     except Exception as e:
         logger.error(f'failed to write to {file_loc}: {e}')
+        raise Exception(e)
 
 def write_csv(file_loc:str, data: list, schema: list = None, encoding:str = None) -> None:
 
@@ -39,7 +40,7 @@ def write_csv(file_loc:str, data: list, schema: list = None, encoding:str = None
 
     # handle optional arguments
     data = [] if data is None else data
-    encoding = 'utf-8' if encoding is None else encoding
+    encoding = 'utf-8-sig' if encoding is None else encoding
 
     try:
 
@@ -54,6 +55,7 @@ def write_csv(file_loc:str, data: list, schema: list = None, encoding:str = None
 
     except Exception as e:
         logger.error(f'failed to write to {file_loc}: {e}')
+        raise Exception(e)
 
 def read_text(file_loc: str) -> str:
 
@@ -67,7 +69,8 @@ def read_text(file_loc: str) -> str:
 
     try:
 
-        with open(file_loc, "r") as f:
+        encoding = 'utf-8-sig' if encoding is None else encoding
+        with open(file_loc, "r", encoding=encoding) as f:
             _data = f.read()
         logger.info(f'data read from {file_loc}')
     
@@ -75,6 +78,7 @@ def read_text(file_loc: str) -> str:
     
     except Exception as e:
         logger.error(f'failed to read {file_loc}: {e}')
+        raise Exception(e)
         
 def read_csv(file_loc:str, encoding:str = None, delimiter:str = None) -> list:
 
@@ -87,7 +91,7 @@ def read_csv(file_loc:str, encoding:str = None, delimiter:str = None) -> list:
     """
 
     # handle optional arguments
-    encoding = 'utf-8' if encoding is None else encoding
+    encoding = 'utf-8-sig' if encoding is None else encoding
     delimiter = ',' if delimiter is None else delimiter
     _data = []
 
@@ -105,3 +109,4 @@ def read_csv(file_loc:str, encoding:str = None, delimiter:str = None) -> list:
     
     except Exception as e:
         logger.error(f'failed to read csv from {file_loc}: {e}')
+        raise Exception(e)

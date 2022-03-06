@@ -6,7 +6,7 @@
 #
 # invoking sed: sed command [options] script file
 #   - executes a set of instructions for each line of input
-#   - awk -f script files
+#   - sed -f script files
 #
 
 # Error modes
@@ -29,6 +29,11 @@ s/ PA/, Pennsylvania/
 s/ CA/, California/' data/list
 
 # specifying script file and saving to output
+#   >> appending
+#   > create and/or overwrite existing file
+
 echo ""
 echo '- specifying script file'
 sed -f scripts/sedscr data/list > data/sedscr_output
+
+# xargs

@@ -15,17 +15,21 @@
 #   - Not surrounding the instructions within single quotes (`') 
 #   - Not enclosing regular expressions within slashes (//)
 
-# Using scripts
-echo ""
-echo "- printing fields"
-awk -f scripts/awkscr_printfields data/list
+# # Using scripts
+# echo ""
+# echo "- printing fields"
+# awk -f scripts/awkscr_printfields data/list
 
 echo ""
 echo "- specifying delimeters"
-awk -F, -f scripts/awkscr_printfields data/list
+awk -F", " -f scripts/awkscr_printfields data/list
 
 echo ""
-echo "- applying scripts to line patterns"
-awk -F, -f scripts/awkscr_patterns data/list
+echo "- applying filtering criteria to awk scripts (this fails)"
+awk -F", " -f scripts/awkscr_patterns
+
+echo ""
+echo "- applying filtering criteria to awk scripts"
+grep 'MA' data/list | awk -F", " -f scripts/awkscr_patterns
 
 

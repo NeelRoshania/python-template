@@ -1,7 +1,7 @@
-# output lines that meet this patterns
+# output lines that meet this pattern
 /MA/ 
 
-# then apply this logic
+# then apply this logic - this was processed on the whole 
 {
     # print fields
     print "\t- field_1: " $1;
