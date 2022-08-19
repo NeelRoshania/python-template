@@ -1,8 +1,7 @@
 import logging
 import csv
 
-# setup logging environment
-logger = logging.getLogger('module')
+from ucmerced_housing import logger
 
 def write_text(file_loc: str, data: str, encoding:str = None) -> None:
 
@@ -19,13 +18,11 @@ def write_text(file_loc: str, data: str, encoding:str = None) -> None:
     encoding = 'utf-8' if encoding is None else encoding
 
     try:
-
         with open(file_loc, "w", encoding=encoding) as f:
             f.write(data)
-        logger.info(f'data written to {file_loc}')
-    
+        logger.info(f'text data written to {file_loc}')
     except Exception as e:
-        logger.error(f'failed to write to {file_loc}: {e}')
+        logger.debug(f'failed to write to {file_loc}: {e}')
         raise Exception(e)
 
 def write_csv(file_loc:str, data: list, schema: list = None, encoding:str = None) -> None:
@@ -54,10 +51,10 @@ def write_csv(file_loc:str, data: list, schema: list = None, encoding:str = None
         logger.info(f'data written to {file_loc}, encoding: {encoding}')
 
     except Exception as e:
-        logger.error(f'failed to write to {file_loc}: {e}')
+        logger.debug(f'failed to write to {file_loc}: {e}')
         raise Exception(e)
 
-def read_text(file_loc: str) -> str:
+def read_text(file_loc: str, encoding:str = None) -> str:
 
     """
         ***
@@ -77,7 +74,7 @@ def read_text(file_loc: str) -> str:
         return _data
     
     except Exception as e:
-        logger.error(f'failed to read {file_loc}: {e}')
+        logger.debug(f'failed to read {file_loc}: {e}')
         raise Exception(e)
         
 def read_csv(file_loc:str, encoding:str = None, delimiter:str = None) -> list:
@@ -108,5 +105,5 @@ def read_csv(file_loc:str, encoding:str = None, delimiter:str = None) -> list:
         return _data
     
     except Exception as e:
-        logger.error(f'failed to read csv from {file_loc}: {e}')
+        logger.debug(f'failed to read csv from {file_loc}: {e}')
         raise Exception(e)
