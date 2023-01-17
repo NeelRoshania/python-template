@@ -1,8 +1,6 @@
 import pandas as pd
 import snowflake.connector as sf
 import os
-import logging
-import logging.config
 
 from sqlalchemy import create_engine
 from sqlalchemy.dialects import registry
@@ -10,8 +8,7 @@ from snowflake.sqlalchemy import URL
 from snowflake.connector.pandas_tools import pd_writer
 from snowflake.connector import SnowflakeConnection
 
-# setup logging environment
-logger = logging.getLogger('module')
+from python_template import logger
 
 def _get_sf_options() -> dict:
     return {

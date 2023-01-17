@@ -1,9 +1,6 @@
 import boto3
-import logging
-import logging.config
 
-# setup logging environment
-logger = logging.getLogger('module')
+from python_template import logger
 
 """
 Notes

@@ -1,7 +1,4 @@
-import logging
-
-# setup logging environment
-logger = logging.getLogger('module')
+from python_template import logger
 
 def specific_func():
 

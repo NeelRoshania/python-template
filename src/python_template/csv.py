@@ -1,7 +1,7 @@
 import logging
 import csv
 
-from ucmerced_housing import logger
+from python_template import logger
 
 def write_text(file_loc: str, data: str, encoding:str = None) -> None:
 
