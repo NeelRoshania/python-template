@@ -44,8 +44,9 @@ def write_csv(file_loc:str, data: list, schema: list = None, encoding:str = None
         with open(file_loc, "w", newline='', encoding=encoding) as f:
             writer = csv.writer(f, delimiter=",")
             if schema is not None:
-                writer.writerows(schema)
-                writer.writerows(data)
+                writer.writerow(header for header in schema)
+                for row in data:
+                    writer.writerows(data)
             else:
                 writer.writerows(data)
         logger.info(f'data written to {file_loc}, encoding: {encoding}')
