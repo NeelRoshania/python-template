@@ -5,8 +5,7 @@ from python_template import logger
 
 def write_text(file_loc: str, data: str, encoding:str = None) -> None:
 
-    """     
-        ***
+    """
 
         write_text(file_loc: str, data: str)  -> None
             - write string data to file
@@ -28,7 +27,6 @@ def write_text(file_loc: str, data: str, encoding:str = None) -> None:
 def write_csv(file_loc:str, data: list, schema: list = None, encoding:str = None) -> None:
 
     """
-        ***
 
         write_csv(file_loc:str, data: list) -> None
             - write comma seperated list objects
@@ -58,7 +56,6 @@ def write_csv(file_loc:str, data: list, schema: list = None, encoding:str = None
 def read_text(file_loc: str, encoding:str = None) -> str:
 
     """
-        ***
 
         read_text(file_loc: str) -> None
             - read text data
@@ -81,8 +78,7 @@ def read_text(file_loc: str, encoding:str = None) -> str:
 def read_csv(file_loc:str, encoding:str = None, delimiter:str = None) -> list:
 
     """
-        ***
-
+    
         read_csv(file_loc:str, encoding:str = None, delimiter:str = None) -> list:
             - write comma seperated list objects
             - returns list of lists:
