@@ -46,7 +46,7 @@ def write_csv(file_loc:str, data: list, schema: list = None, encoding:str = None
             if schema is not None:
                 writer.writerow(header for header in schema)
                 for row in data:
-                    writer.writerows(data)
+                    writer.writerows(row)
             else:
                 writer.writerows(data)
         logger.info(f'data written to {file_loc}, encoding: {encoding}')
@@ -86,7 +86,7 @@ def read_csv(file_loc:str, encoding:str = None, delimiter:str = None) -> list:
         read_csv(file_loc:str, encoding:str = None, delimiter:str = None) -> list:
             - write comma seperated list objects
             - returns list of lists:
-                - l = [for line[0] in read_csv('file_loc.csv')] # [A, B, C]
+                - l = [line[0] for line in read_csv('file_loc.csv')] # [A, B, C]
                 - l = read_csv('file_loc.csv') # [[A], [B], [C]]
 
     """
