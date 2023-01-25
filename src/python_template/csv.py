@@ -85,6 +85,9 @@ def read_csv(file_loc:str, encoding:str = None, delimiter:str = None) -> list:
 
         read_csv(file_loc:str, encoding:str = None, delimiter:str = None) -> list:
             - write comma seperated list objects
+            - returns list of lists:
+                - l = [for line[0] in read_csv('file_loc.csv')] # [A, B, C]
+                - l = read_csv('file_loc.csv') # [[A], [B], [C]]
 
     """
 
