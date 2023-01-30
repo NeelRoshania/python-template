@@ -139,3 +139,4 @@ conf/pipeline_hidden.conf
 
 # file types
 *.tar.gz
+conf/pipeline.conf
