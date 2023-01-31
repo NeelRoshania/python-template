@@ -4,4 +4,3 @@ Host host(username)
 	Hostname IP_ADDRESS
 	IdentityFile .ssh/pk.pem
 
-

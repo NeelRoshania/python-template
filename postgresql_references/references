@@ -1,0 +1,32 @@
+About
+	- PostgreSQL is an open source object-relational database system with over 35 years of active development that has earned it a strong reputation for reliability, feature robustness, and performance.
+	
+Installation procedures
+	- run setup.sh
+	- test installation
+		- sudo -u postgres psql
+		- The only user who can connect to a fresh install is the postgres user
+  	- switch to user postgres and database postgres
+		- sudo -u postgres psql postgres
+
+usage
+	- connect to database; psql mydb
+	- connect to database from user; psql -U posgres -W
+	- run script in psql; \i script.sql
+	- help -> all psql commands
+	- information schema
+		- https://dba.stackexchange.com/questions/22362/list-all-columns-for-a-specified-table 
+
+Connections and authentication 
+ 	- get hosts are allowed to connect, how clients are authenticated, which PostgreSQL user names they can use,
+    		- sudo vim etc/postgresql/15/main/pg_hba.conf
+ 	- configuration set on server startup (including connections and authentication)
+    		- vim etc/postgresql/15/main/postgresql.conf
+
+References
+	- download instructions
+		- https://www.postgresql.org/download/linux/ubuntu/
+		- https://help.ubuntu.com/community/PostgreSQL
+	- tutorials
+		- https://www.postgresql.org/docs/online-resources/
+		- https://help.ubuntu.com/community/PostgreSQL
