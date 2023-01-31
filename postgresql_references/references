@@ -15,7 +15,8 @@ usage
 	- run script in psql; \i script.sql
 	- help -> all psql commands
 	- information schema
-		- https://dba.stackexchange.com/questions/22362/list-all-columns-for-a-specified-table 
+		- https://dba.stackexchange.com/questions/22362/list-all-columns-for-a-specified-table
+	- restart server, sudo service postgresql restart 
 
 Connections and authentication 
  	- get hosts are allowed to connect, how clients are authenticated, which PostgreSQL user names they can use,
