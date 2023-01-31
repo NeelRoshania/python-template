@@ -8,7 +8,7 @@ from python_template.db import psql_connection
 #   - pytest -v
 
 # object extracts all jobs found in joblist
-def test_psqlconnection():
+def test_psqlselect():
 
     # setup config parser config_parser
     cparser.read('conf/pipeline.conf')
@@ -32,11 +32,11 @@ def test_psqlconnection():
         cursor = conn.cursor()
 
         # Executing an MYSQL function using the execute() method
-        cursor.execute("select version()")
+        cursor.execute("select * from weather;")
 
         # Fetch a single row using fetchone() method.
-        data = cursor.fetchone()
-        logger.info(f'Connection established to: {data}')
+        data = cursor.fetchall()
+        logger.info(f'data: {data}, type: {type(data)}, len: {len(data)}')
 
         # Closing the connection
         conn.close()
@@ -45,4 +45,4 @@ def test_psqlconnection():
         raise Exception(f'Failed to pass test - {conn}')
 
 if __name__ == "__main__":
-    test_psqlconnection()
+    test_psqlselect()

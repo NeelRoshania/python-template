@@ -1,18 +1,18 @@
 import psycopg2
 from psycopg2 import OperationalError
 def psql_connection(
+    db: str,
+    usr: str,    
     pswd: str,
     hst: str,
-    prt: str,
-    db: str = 'postgres',
-    usr: str = 'postgres'
+    prt: str
 ) -> any:
     print(f'connecting to psql {hst}:{prt}:{db}') # need to log this
 
     try:
         return {
             "connection-status": True,
-            "conn-object": psycopg2.connect(
+            "conn": psycopg2.connect(
                                                 database=db, 
                                                 user=usr, 
                                                 password=pswd, 
@@ -23,6 +23,6 @@ def psql_connection(
     except OperationalError as oe:
         return {
             "connection-status": False,
-            "conn-object": None,
+            "conn": None,
             "reason": oe
         }
