@@ -5,9 +5,8 @@ from python_template.db import psql_connection
 
 # usage: 
 #   - pytest tests/scripts/test_sample.py
-#   - pytest -v
+#   - pytest -v tests/scripts/test_sample.py
 
-# object extracts all jobs found in joblist
 def test_psqlconnection():
 
     # setup config parser config_parser
