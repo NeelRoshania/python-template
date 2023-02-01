@@ -1,5 +1,8 @@
 import psycopg2
+
+from python_template import logger
 from psycopg2 import OperationalError
+
 def psql_connection(
     db: str,
     usr: str,    
@@ -7,7 +10,7 @@ def psql_connection(
     hst: str,
     prt: str
 ) -> any:
-    print(f'connecting to psql {hst}:{prt}:{db}') # need to log this
+    logger.info(f'connecting to psql {hst}:{prt}:{db}') # need to log this
 
     try:
         return {
