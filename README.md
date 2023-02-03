@@ -10,6 +10,7 @@
 1. `python3 -m venv .env` and `pip3 install --upgrade pip` 
 2. `cd .env/scripts ` then `activate`
 3. Modify `setup.cfg` and `src`
+4. `sudo apt-get install build-essential`
 4. `pip3 install -e .`
 
 **Jupyter kernel setup**
