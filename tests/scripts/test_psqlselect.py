@@ -17,8 +17,8 @@ def test_psqlselect():
     
     # establishing the connection
     conn_response = psql_connection(
-        db='mydb',
-        usr='developer',        
+        db=cparser.get('postgresql_credentials', 'database'),
+        usr=cparser.get('postgresql_credentials', 'user'),        
         pswd=cparser.get('postgresql_credentials', 'password'), 
         hst=cparser.get('postgresql_credentials', 'host'), 
         prt=cparser.get('postgresql_credentials', 'port')
@@ -40,8 +40,8 @@ def test_psqlselect():
         # Closing the connection
         conn.close()
     else:
-        logger.info(f'connection failed: {conn}')
-        raise Exception(f'Failed to pass test - {conn}')
+        logger.info(f'connection failed: {conn_response}')
+        raise Exception(f'Failed to pass test - {conn_response}')
 
 if __name__ == "__main__":
     test_psqlselect()
