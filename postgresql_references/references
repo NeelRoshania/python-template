@@ -7,7 +7,8 @@ Installation procedures
 		- sudo -u postgres psql
 		- The only user who can connect to a fresh install is the postgres user
   	- switch to user postgres and database postgres
-		- sudo -u postgres psql postgres
+		- postgres: sudo -u postgres psql postgres (probably looks for user in less etc/passwd
+		- new roles: psql -U developer mydb
 	- define roles and privaleges
 		- user postgres is the default superuser, select * from pg_roles;
 		- [required] - create a user that is not a super user for development, not a good idea to log in as a root user
