@@ -2,10 +2,10 @@
 Boilerplate scripted implementation for python modules
 
 Integrations
-    - csv and text file read/write
-    - PostgreSQL
-    - aws
-        - s3 read only
+- csv and text file read/write
+- PostgreSQL
+- aws
+    - s3 read only
 
 ### References
 
