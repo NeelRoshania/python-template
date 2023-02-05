@@ -1,6 +1,11 @@
 # python-template
+Boilerplate scripted implementation for python modules
 
-- Use this library to start your python projects
+Integrations
+    - csv and text file read/write
+    - PostgreSQL
+    - aws
+        - s3 read only
 
 ### References
 
@@ -17,10 +22,12 @@ If you run into issues with `psycopg2`, consider the following;
 2. `./psycopg2_setup.sh`
 3. `pip3 install psycopg2`
 
-**POSTGRES installation & setup
+**PostgreSQL installation & setup**
 1. See (Ubuntu PostgreSQL)[https://help.ubuntu.com/community/PostgreSQL] for complete guide
 2. Run `install_start_server.sh` - this will install and start the service
-3. `sudo service postgresql restart` - will restart the service
+3. Check that the service is running `[ + ]  postgresql`
+    - `service --status-all`
+3. `sudo service postgresql restart` - to restart the service if required
 
 **Jupyter kernel setup**
 1. `jupyter kernelspec uninstall .example_env` - remove existing kernels called .example_env
