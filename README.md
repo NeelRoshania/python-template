@@ -17,6 +17,11 @@ If you run into issues with `psycopg2`, consider the following;
 2. `./psycopg2_setup.sh`
 3. `pip3 install psycopg2`
 
+**POSTGRES installation & setup
+1. See (Ubuntu PostgreSQL)[https://help.ubuntu.com/community/PostgreSQL] for complete guide
+2. Run `install_start_server.sh` - this will install and start the service
+3. `sudo service postgresql restart` - will restart the service
+
 **Jupyter kernel setup**
 1. `jupyter kernelspec uninstall .example_env` - remove existing kernels called .example_env
 2. `python -m ipykernel install --user --name=.example_env`- install new kernel
