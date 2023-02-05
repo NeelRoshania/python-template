@@ -29,6 +29,15 @@ Connections and authentication
  	- configuration set on server startup (including connections and authentication)
     		- vim etc/postgresql/15/main/postgresql.conf
 
+Troubleshooting
+
+ psql: could not connect to server: No such file or directory
+ Is the server running locally and accepting
+ connections on Unix domain socket "/tmp/.s.PGSQL.5432"?
+ 
+	- sudo service postgresql restart 
+	
+	
 References
 	- download instructions
 		- https://www.postgresql.org/download/linux/ubuntu/
