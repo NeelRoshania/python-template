@@ -1,10 +1,10 @@
 # python-template
-Boilerplate scripted implementation for python modules
+Boiler plate scripted implementation for python modules
 
-Integrations
-- csv and text file read/write
-- PostgreSQL
-- aws
+Features
+- csv and text file read/write python implementation
+- PostgreSQL integration
+- aws integration
     - s3 read only
 
 ### References
