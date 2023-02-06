@@ -50,6 +50,13 @@ If you run into issues with `psycopg2`, consider the following;
         - `ssh -T git@github.com`. See [Github SSH Authentication](https://docs.github.com/en/authentication).
 2. Authentication troubleshooting
     - [Permission denied (publickey)](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
-3. Postgres commands
+3. PostgreSQL commands
     - [Client Applications](https://www.postgresql.org/docs/current/reference-client.html) 
 	- `ls -al /usr/lib/postgresql/15/bin`
+    - Debugging
+        ```
+        psql: could not connect to server: No such file or directory
+              Is the server running locally and accepting connections on Unix domain socket "/tmp/.s.PGSQL.5432"?
+        ```
+        - Check that the server is running, `service --status-all`. 
+            - Restart if neccesary, `sudo service postgresql restart`
