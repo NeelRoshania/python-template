@@ -17,8 +17,8 @@ def test_psqlselect():
     
     # establishing the connection
     conn_response = psql_connection(
-        db='mydb',
-        usr='developer',        
+        db=cparser.get('postgresql_credentials', 'database'),
+        usr=cparser.get('postgresql_credentials', 'user'),        
         pswd=cparser.get('postgresql_credentials', 'password'), 
         hst=cparser.get('postgresql_credentials', 'host'), 
         prt=cparser.get('postgresql_credentials', 'port')
