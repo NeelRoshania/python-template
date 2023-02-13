@@ -9,6 +9,5 @@ def specific_func(text:str) -> None:
 
     """
     LOGGER.debug(text)
-    # logger.debug(text)
 
     return None
