@@ -17,5 +17,6 @@ less etc/passwd | grep 'postgres'
 
 cd ~
 
+# start postgres service
 sudo service postgresql restart
 echo -e '\n- setup complete'

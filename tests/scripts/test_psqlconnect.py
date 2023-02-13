@@ -1,7 +1,7 @@
 import pytest
 from python_template import logger, cparser
 
-from python_template.db import psql_connection
+from python_template.psql import psql_connection
 
 # usage: 
 #   - pytest tests/scripts/test_sample.py
