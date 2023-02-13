@@ -1,7 +1,6 @@
 import argparse
 import logging
 
-from python_template import logger
 from python_template import funcs
 
 LOGGER = logging.getLogger(__name__) # this logger is defined seperately, see logging.conf
