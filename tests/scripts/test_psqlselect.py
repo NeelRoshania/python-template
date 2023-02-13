@@ -40,8 +40,8 @@ def test_psqlselect():
         # Closing the connection
         conn.close()
     else:
-        logger.info(f'connection failed: {conn}')
-        raise Exception(f'Failed to pass test - {conn}')
+        logger.info(f'connection failed: {conn_response}')
+        raise Exception(f'Failed to pass test - {conn_response}')
 
 if __name__ == "__main__":
     test_psqlselect()
