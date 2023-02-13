@@ -1,13 +1,15 @@
 import logging
 from python_template import logger
 
-LOGGER = logging.getLogger(__name__)
+LOGGER = logging.getLogger(__name__) # this logger is defined seperately, see logging.conf
 
-def specific_func():
+def specific_func(text:str) -> None:
 
     """
         Service to....
 
     """
-    LOGGER.info('Define a function here...')
+    LOGGER.debug(text)
+    # logger.debug(text)
+
     return None
