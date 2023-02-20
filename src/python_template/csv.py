@@ -48,7 +48,8 @@ def write_csv(file_loc:str, data: list[list], schema: list = None, encoding:str 
             writer = csv.writer(f, delimiter=",")
             if schema is not None:
                 writer.writerow(header for header in schema)
-                writer.writerows(data)
+                for row in data:
+                    writer.writerow(row)
             else:
                 writer.writerows(data)
         LOGGER.info(f'data written to {file_loc}, encoding: {encoding}')
@@ -88,8 +89,8 @@ def read_csv(file_loc:str, encoding:str = None, delimiter:str = None) -> list:
         read_csv(file_loc:str, encoding:str = None, delimiter:str = None) -> list:
             - write comma seperated list objects
             - returns list of lists:
-                - l = read_csv('file_loc.csv') # [[A], [B], [C]]
-                - lflat = [line[0] for line in read_csv('file_loc.csv')] # [A, B, C] give data=[[1], [2], [3]...,[n]]
+                - l = read_csv('file_loc.csv') # l = [[A], [B], [C]]
+                - lflat = [line[0] for line in read_csv('file_loc.csv')] # lflat = [A, B, C] given data=[[1], [2], [3]...,[n]]
 
         - considerations
             - although the result is a list object, nested objects are returned as strings
