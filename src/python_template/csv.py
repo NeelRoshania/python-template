@@ -91,6 +91,10 @@ def read_csv(file_loc:str, encoding:str = None, delimiter:str = None) -> list:
                 - l = read_csv('file_loc.csv') # [[A], [B], [C]]
                 - lflat = [line[0] for line in read_csv('file_loc.csv')] # [A, B, C] give data=[[1], [2], [3]...,[n]]
 
+        - considerations
+            - although the result is a list object, nested objects are returned as strings
+                - json.loads
+
     """
 
     # handle optional arguments
