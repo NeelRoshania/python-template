@@ -89,7 +89,8 @@ def read_csv(file_loc:str, encoding:str = None, delimiter:str = None) -> list:
         read_csv(file_loc:str, encoding:str = None, delimiter:str = None) -> list:
             - write comma seperated list objects
             - returns list of lists:
-                - l = read_csv('file_loc.csv') # l = [[A], [B], [C]]
+                - l = read_csv('file_loc.csv') [[A], [B], [C]] or [[headers], [[data]]]
+                    - with headers: headers, *data = read_csv(...)
                 - lflat = [line[0] for line in read_csv('file_loc.csv')] # lflat = [A, B, C] given data=[[1], [2], [3]...,[n]]
 
         - considerations
