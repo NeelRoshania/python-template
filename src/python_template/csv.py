@@ -34,6 +34,8 @@ def write_csv(file_loc:str, data: list[list], schema: list = None, encoding:str 
             - write comma seperated list objects
             - data: request list of lists
 
+        write_csv(file_loc=f'{}.csv', data=[list], schema=[schema])
+
     """
 
     # handle optional arguments
