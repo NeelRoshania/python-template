@@ -14,8 +14,9 @@ Features
 **Module setup**
 1. `python3 -m venv .env` and `pip3 install --upgrade pip` 
 2. `cd .env/scripts ` then `activate`
-3. Modify `setup.cfg` and `src`
+3. Modify `src/setup.cfg` - change project name
 4. `pip3 install -e .`
+5. Change `qualname` in `conf/logger.conf`
 
 If you run into issues with `psycopg2`, consider the following;
 1. `sudo chmod 774 psycopg2_setup.sh`
