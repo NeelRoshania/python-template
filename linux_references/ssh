@@ -60,7 +60,10 @@ SSH AGENT
 	list identities: ssh-add -l
 
 
-USEFUL AWS COMMANDS
+AWS
+- Starting an EC2 instance, https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html
+
+USEFUL COMMANDS
 
 - create key: aws ec2 create-key-pair --key-name my-key-par --key-type rsa --key-format pem --query "KeyMaterial" --output text > my-key-pir.pem
 - ssh: ssh -i /path/key-pair-name.pem instance-user-name@instance-public-dns-name
