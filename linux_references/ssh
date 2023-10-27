@@ -1,22 +1,51 @@
-usefull aws commands
-
-- create key: aws ec2 create-key-pair --key-name my-key-par --key-type rsa --key-format pem --query "KeyMaterial" --output text > my-key-pir.pem
-- ssh: ssh -i /path/key-pair-name.pem instance-user-name@instance-public-dns-name
-- get instance networking details: aws ec2 describe-instances --instance-id i-0c1405dd6083ba154 --output text
-- get instance fingerprint: aws ec2 get-console-output --instance-id instance_id --output text
-- create key pair: aws ec2 create-key-pair --key-name my-key-pair --key-type rsa --key-format pem --query "KeyMaterial" --output text > my-key-pair.pem THEN chmod 400 my-key-pair.pem
-- Note about ssh into sudo user
-	- You typically shouldn't have the sudo's pk credentials.
-	- Neel, that includes you.
-	- Delete the PK when you're done with it. Recreate it if you have to.
-
 SSH MANAGEMENT
-- manage ssh password authentication 
-	- set PasswordAuthentication no to disble password authenticaion on ssh
-	- usefull to limit ssh connections to public keys only (see PubkeyAuthentication)
 
-	sudo vim /etc/ssh/sshd_config
-	sudo service ssh restart
+- Creating a user to SSH into
+
+Root User
+	- ssh into remote root account
+	- create the newuser and define password
+	- log into newuser
+		- su - newuser
+	- create a private key in the remote machine (the one that isn't local), 
+		- ssh-keygen -t rsa -f ~/.ssh/KEY_FILENAME -C USERNAME -b 2048
+	- copy the private key and send it to user
+	- create new directories,
+		- /home/newuser/.ssh/ then chmod 700 .ssh
+		- /home/newuser/.ssh/authorized_keys then chmod 600 .ssh/authorized_keys
+	- save public key to .ssh/authorized_keys
+		- ssh-keygen -y -f .ssh/nroshania.pem >> .ssh/authorized_keys
+	- delete the private key
+
+newuser
+	- In local environment, create /home/newuser/.ssh
+	- Receive private key from root user and save to /home/newuser/.ssh/newuser.pem, 
+		- Then change permission to 400, 
+			- chmod 400 /home/newuser/.ssh/newuser.pem
+	- define identity file in .ssh/config
+		- sample contents
+
+		Host newuser
+		        User newuser
+		        Hostname xx.xx.xx.xx
+		        IdentityFile .ssh/newuser.pem
+
+
+SSH PASSWORD AUTHENTICATION
+
+NOTE: This method requires disabling PubkeyAuthentication, not recommended
+https://unix.stackexchange.com/questions/15138/how-to-force-ssh-client-to-use-only-password-auth
+
+- login as root
+- access sshd_config
+	- sudo vim /etc/ssh/sshd_config 
+	- set 
+		- PasswordAuthentication yes 
+		- PubkeyAuthentication no
+- sudo service ssh restart
+
+
+SSH AGENT
 
 - ssh-agent (needed to clone git repositories using ssh)
 
@@ -29,4 +58,24 @@ SSH MANAGEMENT
 	add keypair to agent: ssh-add .ssh/<private_key>
 	delete all identities: ssh-add -D
 	list identities: ssh-add -l
+
+
+USEFUL AWS COMMANDS
+
+- create key: aws ec2 create-key-pair --key-name my-key-par --key-type rsa --key-format pem --query "KeyMaterial" --output text > my-key-pir.pem
+- ssh: ssh -i /path/key-pair-name.pem instance-user-name@instance-public-dns-name
+- get instance networking details: aws ec2 describe-instances --instance-id i-0c1405dd6083ba154 --output text
+- get instance fingerprint: aws ec2 get-console-output --instance-id instance_id --output text
+- create key pair: aws ec2 create-key-pair --key-name my-key-pair --key-type rsa --key-format pem --query "KeyMaterial" --output text > my-key-pair.pem THEN chmod 400 my-key-pair.pem
+- Note about ssh into sudo user
+	- You typically shouldn't have the sudo's pk credentials.
+	- Neel, that includes you.
+	- Delete the PK when you're done with it. Recreate it if you have to.
+
+
+REFERENCES
+
+- creating a user, and definiting ssh private & public keys: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/managing-users.html
+- octal values for file permissions, https://unstop.com/blog/linux-file-permissions
+- IdentityFile, https://man7.org/linux/man-pages/man5/ssh_config.5.html
 
