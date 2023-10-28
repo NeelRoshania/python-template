@@ -59,10 +59,6 @@ SSH AGENT
 	delete all identities: ssh-add -D
 	list identities: ssh-add -l
 
-
-AWS
-- Starting an EC2 instance, https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html
-
 USEFUL COMMANDS
 
 - create key: aws ec2 create-key-pair --key-name my-key-par --key-type rsa --key-format pem --query "KeyMaterial" --output text > my-key-pir.pem
