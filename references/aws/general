@@ -7,3 +7,6 @@ EC2
 
 ARNS
     - An Amazon Resource Name (ARN) is a string that uniquely identifies an AWS resource, https://docs.aws.amazon.com/managedservices/latest/userguide/find-arn.html
+
+POLICIES & PERMISSIONS
+    - Policies and permissions in IAM, https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json
