@@ -4,3 +4,6 @@ CLI
 
 EC2 
     - Starting an EC2 instance, https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html
+
+ARNS
+    - An Amazon Resource Name (ARN) is a string that uniquely identifies an AWS resource, https://docs.aws.amazon.com/managedservices/latest/userguide/find-arn.html
