@@ -1,7 +1,8 @@
 CLI
     - Use high-level (s3) commands with the AWS CLI
         - https://docs.aws.amazon.com/cli/latest/userguide/cli-services-s3-commands.html
-
+    - check if logged in,
+        - aws sts get-caller-identity
 EC2 
     - Starting an EC2 instance, https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html
 
