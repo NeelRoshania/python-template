@@ -11,3 +11,60 @@ ARNS
 
 POLICIES & PERMISSIONS
     - Policies and permissions in IAM, https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json
+
+SYSTEMS MANAGER SETUP
+    - EC2
+
+        CONFIGURE PERMISSIONS, VPC AND ENDPOINTS
+        - Configure IAM user
+            - Create policy (session-manager-instance-role)
+            - Create IAM user (developer)
+                - Attach policy to user
+        - Configure Instance
+            - Create a policy for the Instance (session-manager-instance-policy)
+            - Create an IAM role for the Instance (session-manager-instance-role)
+                - Attach instance policy to instance role
+        - Configure Network Settings
+            - Create VPC with private subnets (session-manager-vpc)
+                - no endpoints vpc required for now
+            - Create an Instance Security Group (instance-ssm-only)
+                - Attach vpc (session-manager-vpc)
+                - Does not require inbound rules
+                - Leave outbound rules as default
+            - create endpoint security group (endpoint-security-group)
+                    - attach vpc (session-manager-vpc)
+                    - define inbound rule to allow endpoints to accept HTTPS from 403 from a security group attached to our instance
+                        - traffic: HTTPS
+                        - port: 403
+                        - source: instance-ssm-only
+                    - leave outbound rules as default
+            - Create VPC endpoints required for ssm
+                - create new endpoints required for ssm
+                - for each new endpoint
+                    - attach vpc (session-manager-vpc)
+                    - attach availability zones to a private subnet (no public IP)
+                    - attach to endpoint security group (endpoint-security-group)
+
+        CREATE EC2 INSTANCE
+        - Create an EC2 Instance
+            - Does not require key pair (thanks to Session Manager)
+            - Attach IAM Instance role (session-manager-instance-role)
+            - Attached to vpc (session-manager-vpc)
+            - Attach either subnets
+            - Attach instance security group (instance-ssm-only)
+
+        CONNECT TO INSTANCE
+            - Ensure correct setup
+                - Systems Manager -> Session Manager or Fleet Manager
+                    - instance should be visible
+                    - selecting instance should note raise any exceptions
+            - Connect with the Sessions Manager
+                - Select an instance and Connect to Instance with Session Manager
+                    - If connect button is greyed out, Systems Manager is not configured properly
+                - aws ssm start-session --target i-xxx
+        
+    REFERENCES
+        - Connect to EC2 Instance using AWS Systems Manager (SSM) Session Manager, https://www.youtube.com/watch?v=Ybl0rw3wz10
+        - Troubleshooting Session Manager, https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-troubleshooting.html
+        - Setting Up Session Manager, https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-getting-started.html
+        - Setting Up Systems Manager, https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-setting-up.html
