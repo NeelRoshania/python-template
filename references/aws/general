@@ -11,6 +11,7 @@ ARNS
 
 POLICIES & PERMISSIONS
     - Policies and permissions in IAM, https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json
+    - Policies define what services or actions are allowed, and are attached to instances and users
 
 SYSTEMS MANAGER SETUP
     - EC2
