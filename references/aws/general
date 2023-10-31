@@ -18,6 +18,7 @@ POLICIES & PERMISSIONS
 SECURITY GROUPS
     - Controls the traffic that is allowed to reach and leave the resources that it is associated with, https://docs.aws.amazon.com/vpc/latest/userguide/vpc-security-groups.html
     - They are defined by VPC's, and control inbound and outbound traffic
+    - The source of one security group can be the source for another as defined by inbound/outbound rules
 
 VPC'S
     - Virtual Private Center's are virtual network dedicated to your AWS account and spans all of the Availability Zones in a Region (e.g. us-east-1)
