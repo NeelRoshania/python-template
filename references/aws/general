@@ -11,7 +11,31 @@ ARNS
 
 POLICIES & PERMISSIONS
     - Policies and permissions in IAM, https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json
-    - Policies define what services or actions are allowed, and are attached to instances and users
+    - Policies define define permissions for an action regardless of the method
+        - users and/or resources utlize these actions to interact with the system
+        - Policies are attached to instances and/or users to limit scope of actions
+
+SECURITY GROUPS
+    - Controls the traffic that is allowed to reach and leave the resources that it is associated with, https://docs.aws.amazon.com/vpc/latest/userguide/vpc-security-groups.html
+    - They are defined by VPC's, and control inbound and outbound traffic
+
+VPC'S
+    - Virtual Private Center's are virtual network dedicated to your AWS account and spans all of the Availability Zones in a Region (e.g. us-east-1)
+    - VPC's can contain many public or private subnets (subnet is a range of IP addresses in your VPC.)
+        - Subnets can be private, public, VPN-only or isolated-only 
+    - Creating VPS's generate defaul security groups
+    - References
+        - VPC's, https://docs.aws.amazon.com/vpc/latest/userguide/configure-your-vpc.html
+        - Subnets, https://docs.aws.amazon.com/vpc/latest/userguide/configure-subnets.html
+
+Service endpoints
+    - An endpoint is the URL of the entry point for an AWS web service.
+    - To connect programmatically to an AWS service, you use an endpoint. 
+    - Endpoints are attached to VPC's
+        - availability zones are attached to a subnets
+        - endpoints can be attached to security groups
+    - References
+        - https://docs.aws.amazon.com/general/latest/gr/rande.html
 
 SYSTEMS MANAGER SETUP
     - EC2
