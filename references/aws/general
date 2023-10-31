@@ -38,7 +38,15 @@ Service endpoints
     - References
         - https://docs.aws.amazon.com/general/latest/gr/rande.html
 
-SYSTEMS MANAGER SETUP
+SESSION MANAGER 
+
+USAGE
+    - aws ssm start-session --target i-xxx --region us-example-1
+    - create a new user, sudo adduser newuser
+    - su - newuser (instead of SSH'ing)
+        - session manager usage negates the use of ssh
+
+SETUP
     - EC2
 
         CONFIGURE PERMISSIONS, VPC AND ENDPOINTS
