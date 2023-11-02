@@ -98,6 +98,7 @@ SETUP
                 - aws ssm start-session --target i-xxx
                 - create a non-root user, sudo adduser newuser
                     - connect to that user, su - newuser
+                - change password, sudo passwd newuser
         
     REFERENCES
         - Connect to EC2 Instance using AWS Systems Manager (SSM) Session Manager, https://www.youtube.com/watch?v=Ybl0rw3wz10
