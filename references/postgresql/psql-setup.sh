@@ -3,8 +3,8 @@
 
 
 # install the following packages
-sudo apt install postgresql-client-common
-sudo apt-get install postgresql-client
+# sudo apt install postgresql-client-common
+# sudo apt-get install postgresql-client
 sudo apt install postgresql postgresql-contrib    
 
  
