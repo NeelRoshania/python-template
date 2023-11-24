@@ -5,6 +5,10 @@ from csv import Error
 
 LOGGER = logging.getLogger(__name__)
 
+def parse_fpath(path:str) -> list:
+    """parse directory, full filename, filename only, extension from a given path"""
+    return [os.path.dirname(path), os.path.basename(path), os.path.splitext(os.path.basename(path))[0], os.path.splitext(path)[1]]
+
 def write_text(file_loc: str, data: str, encoding:str = None) -> None:
 
     """
