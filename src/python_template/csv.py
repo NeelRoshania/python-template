@@ -1,6 +1,6 @@
 import logging
 import csv
-
+import os
 from csv import Error
 
 LOGGER = logging.getLogger(__name__)
