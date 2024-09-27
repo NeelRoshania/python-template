@@ -11,9 +11,11 @@ from typing import List
 class Response:
     url: str
     status:str
+    content_type: str
+    etag: str
+    date: str
+    server:str
     text: Response
-    is_redirect: str
-
 
 ## synchronous functions
 def get_responses(urls):
@@ -23,7 +25,17 @@ def get_responses(urls):
  
     for _u in urls:
         _r = r.get(_u)
-        _responses.append(Response(url=_u, status=_r.status_code, text=_r.text, is_redirect=''))
+        _responses.append(
+            Response(
+                url=_u, 
+                status=_r.status_code, 
+                content_type=_r.headers["Content-Type"],
+                etag='',
+                date='',
+                server='',
+                text=_r.text
+                )
+            )
     
     return _responses
 
@@ -44,11 +56,34 @@ def main(urls:list):
 ## async functions
 async def fetch(url):
     # https://docs.aiohttp.org/en/stable/client_reference.html#aiohttp.ClientResponse
+
+    """
+    - first wait for a session to be instantiated
+    - then make a request and wait for a response
+    - the status, headers and meta data are intially available
+    - the body response is awaited
+    """
     async with aiohttp.ClientSession() as session:
         async with session.get(url) as response:
+            
+            # inital request information
+            status_code = response.status
+            content_type = response.headers["Content-Type"]
+            # etag = response.Etag
+            # date = response.date
+            # server = response.server
+
+            # response body is awaited as usually sent over in chunks
             text = await response.text()
-            status = response.status
-            return Response(url=url, status=status, text=text, is_redirect='')
+            return Response(
+                url=url, 
+                status=status_code, 
+                content_type=content_type,
+                etag='',
+                date='',
+                server='',
+                text=text
+            )
         
 async def async_main(urls:list):
 
