@@ -1,5 +1,6 @@
 # References
 #   - https://www.digitalocean.com/community/tutorials/how-to-install-postgresql-on-ubuntu-22-04-quickstart
+#   - https://chatgpt.com/share/67494769-8ad8-8010-955b-4e03043601b9
 
 
 # install the following packages
